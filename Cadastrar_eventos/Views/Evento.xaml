@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+         x:Class="Cadastrar_eventos.Views.Evento"
+         Title="Evento"
+         NavigationPage.HasNavigationBar="False"
+         BackgroundColor="#EFF6FF">
+
+    <VerticalStackLayout VerticalOptions="Center"
+                         Padding="10"
+                         Spacing="10">
+
+        <Label Text="Cadastro de Eventos"
+               FontSize="38"
+               FontFamily="MontserratItalic"
+               TextColor="#1E3A5F" />
+
+        
+        <Border Padding="10"
+        Margin="5"
+        Background="White"
+        Stroke="#D3D3D3"
+        StrokeThickness="1"
+        StrokeShape="RoundRectangle 10"
+        HorizontalOptions="Fill">
+
+            <VerticalStackLayout Padding="15"
+                         Spacing="8"
+                         HorizontalOptions="Fill">
+                
+                
+            <Label Text="Nome do Evento"
+                    FontSize="16"
+                    TextColor="#1E3A5F"/>
+
+            <Entry
+            x:Name="txtNomeEvento"
+            Placeholder="Digite o nome do evento"
+            HorizontalOptions="Fill"
+            FontSize="16"
+            MaxLength="100"
+            FontFamily="MontserratRegular"
+            TextColor="#1E3A5F"/>
+                
+
+
+                <Label Text="Data de início"
+                    FontSize="16"
+                    TextColor="#1E3A5F"/>
+                
+                <DatePicker x:Name="dpkDatainicio"
+                            DateSelected="dpkDatainicio_DateSelected"
+                            Format="dd/MM/yyyy"
+                            HorizontalOptions="Fill"/>
+                
+                <Label Text="Data de término"
+                    FontSize="16"
+                    TextColor="#1E3A5F"/>
+
+                <DatePicker x:Name="dpkDataTermino"
+                            Format="dd/MM/yyyy"
+                            HorizontalOptions="Fill"/>
+
+
+                <Grid ColumnDefinitions="*, *, Auto"
+                      VerticalOptions="Center">
+
+                    <Label Grid.Column="0"
+                           Text="Participantes:"
+                           FontSize="16"
+                           TextColor="#1E3A5F"/>
+
+                    <Label Grid.Column="1"
+                           Text="{Binding Value}"
+                           FontSize="16"
+                           TextColor="#1E3A5F"
+                           VerticalOptions="Center"
+                           BindingContext="{x:Reference stpParticipantes}"/>
+
+                    <Stepper Grid.Column="2"
+                             x:Name="stpParticipantes"
+                             Minimum="20"
+                             Maximum="500"
+                             Increment="10"/>
+                </Grid>
+
+                <Label Text="Local do Evento"
+                           FontSize="16"
+                           TextColor="#1E3A5F"/>
+
+                <Entry
+                    x:Name="txtLocalEvento"
+                    Placeholder="Digite o local do evento"
+                    HorizontalOptions="Fill"
+                    FontSize="16"
+                    MaxLength="100"
+                    FontFamily="MontserratRegular"
+                    TextColor="#1E3A5F"/>
+                
+                <Label Text="Preço por participante"
+                           FontSize="16"
+                           TextColor="#1E3A5F"/>
+                
+                <Entry
+                    x:Name="txtPrecoParticipante"
+                    Placeholder="Digite o preço por participante"
+                    HorizontalOptions="Fill"
+                    FontSize="16"
+                    MaxLength="100"
+                    FontFamily="MontserratRegular"
+                    TextColor="#1E3A5F"/>
+
+
+
+            </VerticalStackLayout>
+
+            <Border.Shadow>
+                <Shadow Brush="Black"
+                Offset="0,3"
+                Radius="8"
+                Opacity="0.20"/>
+            </Border.Shadow>
+
+        </Border>
+
+        <Button Text="Cadastrar Evento"
+                BackgroundColor="#2563EB"
+                TextColor="White"
+                FontFamily="MontserratBold"
+                Clicked="Btn_evento_clicked"/>
+
+    </VerticalStackLayout>
+</ContentPage>

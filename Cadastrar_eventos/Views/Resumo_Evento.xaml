@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Cadastrar_eventos.Views.Resumo_Evento"
+             Title="Resumo_Evento"
+             NavigationPage.HasNavigationBar="False"
+             BackgroundColor="#EFF6FF">
+
+    <VerticalStackLayout Padding="20"
+                         Spacing="15">
+
+        <Label
+                Text="Resumo do Evento"
+                FontSize="30"
+                FontFamily="MontserratItalic"
+                TextColor="#1E3A5F"/>
+
+        <Border
+                Padding="15"
+                Background="White"
+                Stroke="#D3D3D3"
+                StrokeShape="RoundRectangle 10">
+
+            <VerticalStackLayout Spacing="12">
+
+                <Label Text="Informações gerais"
+                        FontSize="20"
+                        TextColor="#1E3A5F"/>
+
+                <Label Text="Nome do evento"/>
+                <Label Text="{Binding Nome}"/>
+
+                <Label Text="Data de início"/>
+                <Label Text="{Binding DataInicio, StringFormat='{0:dd/MM/yyyy}'}"/>
+
+                <Label Text="Data de término"/>
+                <Label Text="{Binding DataTermino, StringFormat='{0:dd/MM/yyyy}'}"/>
+
+                <Label Text="Duração do evento"/>
+                <Label Text="{Binding Duracao, StringFormat='{0} dias'}"/>
+
+                <Label Text="Participantes"/>
+                <Label Text="{Binding Participantes}"/>
+
+                <Label Text="Local do evento"/>
+                <Label Text="{Binding Local}"/>
+
+            </VerticalStackLayout>
+        </Border>
+
+              <Border Padding="15"
+                Background="White"
+                Stroke="#D3D3D3"
+                StrokeShape="RoundRectangle 10">
+
+            <VerticalStackLayout Spacing="12">
+
+                <Label
+                        Text="Valores do evento"
+                        FontSize="20"
+                        TextColor="#1E3A5F"/>
+
+                <Label Text="Custo por participante"/>
+                <Label Text="{Binding PrecoParticipante, StringFormat='preço: {0:C}'}"/>
+
+                <Label Text="Custo total"/>
+                <Label Text="{Binding ValorTotal, StringFormat='preço: {0:C}'}"
+                       FontSize="30"
+                       TextColor="#1E3A5F"/>
+
+            </VerticalStackLayout>
+        </Border>
+
+        <Button
+                Text="Voltar ao cadastro"
+                BackgroundColor="#2563EB"
+                TextColor="White"
+                FontFamily="MontserratBold"
+                Clicked="Btnvoltar_clicked"/> 
+
+
+    </VerticalStackLayout>
+</ContentPage>
